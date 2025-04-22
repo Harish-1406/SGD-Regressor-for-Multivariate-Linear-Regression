@@ -37,28 +37,40 @@ from sklearn.preprocessing import StandardScaler
 
 data=fetch_california_housing()
 print(data)
+```
 ![image](https://github.com/user-attachments/assets/5aa13ac6-eca5-4309-bba4-fc16f5e35747)
+```
 df=pd.DataFrame(data.data,columns = data.feature_names)
 df['target'] = data.target
 print(df.head)
 print(df.tail)
 print(df.info())
+```
 ![image](https://github.com/user-attachments/assets/f7f1f4b1-f4ec-48ba-9fd0-8638b11470e0)
+```
 X=df.drop(columns=['AveOccup','target'])
 X.info()
 Y = df['target']
+```
 ![image](https://github.com/user-attachments/assets/29f965b7-645d-4559-ae22-fb9ed531fa2c)
+```
 print(X.shape)
 print(Y.shape)
+```
 ![image](https://github.com/user-attachments/assets/0da46cfa-c1fc-4f65-97cf-98032c01ba8a)
+```
 X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2,random_state=11)
 X.head()
+```
 ![image](https://github.com/user-attachments/assets/90f788c5-4630-4d01-8821-e3aa7cee141e)
+```
 print(X_train.shape)
 print(X_test.shape)
 print(Y_train.shape)
 print(Y_test.shape)
+```
 ![image](https://github.com/user-attachments/assets/81669e8e-ea69-4e42-9c8f-62aaeb144236)
+```
 scaler_X = StandardScaler()
 scaler_Y = StandardScaler()
 
@@ -67,11 +79,15 @@ X_test = scaler_X.transform(X_test)
 Y_train = scaler_Y.fit_transform(Y_train)
 Y_test = scaler_Y.transform(Y_test)
 print(X_train)
+```
 ![image](https://github.com/user-attachments/assets/654d2ce9-d29e-473b-be35-4f5605306434)
+```
 sgd = SGDRegressor(max_iter=1000,tol=1e-3)
 multi_output_sgd = MultiOutputRegressor(sgd)
 multi_output_sgd.fit(X_train,Y_train)
+```
 ![image](https://github.com/user-attachments/assets/d2d9fa1d-dab2-4837-9e6b-a5e344b8a93d)
+```
 Y_pred=multi_output_sgd.predict(X_test)
 Y_pred=scaler_Y.inverse_transform(Y_pred)
 Y_test=scaler_Y.inverse_transform(Y_test)
