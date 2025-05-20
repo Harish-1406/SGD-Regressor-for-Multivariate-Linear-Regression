@@ -9,12 +9,19 @@ To write a program to predict the price of the house and number of occupants in 
 
 ## Algorithm
 1.Import libraries-Load necessary Python libraries.
+
 2.Load Data-Read the dataset containing house details.
+
 3.Preprocess Data-Clean and solit the data into training and testing sets.
+
 4.Select Features & Target-Choose input variables(features) and output variables(house price,occupants).
+
 5.Train Mode-Use SGDRegressor() to train the model.
+
 6.Make Predictions-Use the model to predict house price and occupants.
+
 7.Evaluate Performance-Check accuracy using error metrics. 
+
 8.Improve Model-Tune settings for better accuracy.
 
 ## Program:
